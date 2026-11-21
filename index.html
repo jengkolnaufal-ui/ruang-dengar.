@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ruangdengar. — Ruang Aman untuk Mengenali Diri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <!-- Pustaka jsPDF untuk mengunduh hasil refleksi dalam format PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="top-bar" id="topBar">
+    <span id="topBarText">Kamu tidak harus menghadapi semuanya sendirian.</span>
+    <a href="#bantuan" class="top-bar-link" onclick="navigateTo('bantuan')">Temukan dukungan</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#beranda" class="brand" onclick="navigateTo('beranda')">
+        <span class="brand-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </span>
+        <span class="brand-text">ruang<strong>dengar.</strong></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#beranda" class="nav-item active" data-page="beranda" onclick="navigateTo('beranda')">Beranda</a>
+        <a href="#kenali-diri" class="nav-item" data-page="kenali-diri" onclick="navigateTo('kenali-diri')">Kenali Diri</a>
+        <a href="#ruang-tenang" class="nav-item" data-page="ruang-tenang" onclick="navigateTo('ruang-tenang')">Ruang Tenang</a>
+        <a href="#ular-tangga" class="nav-item" data-page="ular-tangga" onclick="navigateTo('ular-tangga')">Ular Tangga</a>
+        <a href="#cerita" class="nav-item" data-page="cerita" onclick="navigateTo('cerita')">Cerita</a>
+        <a href="#bantuan" class="nav-item" data-page="bantuan" onclick="navigateTo('bantuan')">Bantuan</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-dark btn-sm" onclick="navigateTo('kenali-diri')">Mulai perjalanan &rarr;</button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="appMain">
+
+    <!-- =========================================================
+         HALAMAN 1: BERANDA
+         ========================================================= -->
+    <section id="page-beranda" class="page-section active">
+      <div class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="eyebrow">SEBUAH RUANG UNTUKMU</span>
+            <h1 class="hero-title">
+              Pelan-pelan saja.<br />
+              Perasaanmu layak<br />
+              didengarkan.
+            </h1>
+            <p class="hero-desc">
+              Ada hari ketika semuanya terasa penuh. Di sini, kamu bisa berhenti sejenak, mengenali apa yang sedang kamu rasakan, dan menemukan dukungan tanpa takut dihakimi.
+            </p>
+            <div class="hero-cta">
+              <button class="btn btn-dark" onclick="navigateTo('kenali-diri')">Mulai kenali dirimu &rarr;</button>
+              <button class="btn btn-outline" onclick="scrollToSection('tentang-section')">Kenali Ruang Dengar</button>
+            </div>
+            <p class="hero-note">Tak perlu punya semua jawaban untuk mulai bercerita.</p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card-stack">
+              <div class="floating-pill">Ruang untuk merasa</div>
+              <div class="floating-pill">Tanpa perlu berpura-pura</div>
+              <div class="hero-card-main">
+                <div class="breath-preview-circle">
+                  <span>Tarik napas.</span>
+                  <small>Kamu sedang berusaha.</small>
+                </div>
+                <div class="hero-card-footer">
+                  <span class="eyebrow-sm">RUANG KECIL, LANGKAH BERARTI.</span>
+                  <h3>RUANG DENGAR HADIR UNTUK MENEMANIMU</h3>
+                  <div class="tags-row">
+                    <span class="tag-badge">Aman untuk bercerita</span>
+                    <span class="tag-badge">Tanpa menghakimi</span>
+                    <span class="tag-badge">Bertumbuh dengan ritmemu</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 01 / TENTANG KAMI -->
+      <div class="section-cream" id="tentang-section">
+        <div class="container split-grid">
+          <div>
+            <span class="section-index">01 / TENTANG KAMI</span>
+            <h2 class="section-title">
+              Bukan tentang selalu kuat. Tapi tentang berani mendengarkan diri sendiri.
+            </h2>
+          </div>
+          <div class="section-body-col">
+            <p>
+              Ruang Dengar adalah teman perjalanan untuk memahami perasaan dan menjaga kesejahteraan diri. Kami menyediakan ruang untuk refleksi, latihan sederhana, dan informasi dukungan yang bisa kamu jelajahi sesuai kebutuhan.
+            </p>
+            <p class="text-muted">
+              Semua proses bisa kamu jalani sesuai ritmemu. Kamu boleh berhenti kapan saja.
+            </p>
+            <div class="mt-20">
+              <button class="btn btn-outline" onclick="navigateTo('ruang-tenang')">Lebih dekat dengan kami &rarr;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 / JELAJAHI RUANGMU -->
+      <div class="section-cream border-top">
+        <div class="container">
+          <div class="section-header-flex">
+            <div>
+              <span class="section-index">02 / JELAJAHI RUANGMU</span>
+              <h2 class="section-title">Mulai dari apa yang kamu butuhkan.</h2>
+            </div>
+            <p class="section-subtitle">
+              Setiap orang punya cara dan waktu yang berbeda. Pilih ruang yang terasa tepat untukmu hari ini.
+            </p>
+          </div>
+
+          <div class="cards-3-grid">
+            <div class="feature-card card-blue" onclick="navigateTo('kenali-diri')">
+              <span class="card-num">01 / PIKIRAN</span>
+              <h3>Reaksi Kognitif</h3>
+              <p>Amati fokus, fleksibilitas berpikir, dan rasa lelah mental yang mungkin sedang kamu alami.</p>
+              <span class="card-link">Kenali pola pikirmu &rarr;</span>
+            </div>
+
+            <div class="feature-card card-cream" onclick="navigateTo('kenali-diri')">
+              <span class="card-num">02 / PERASAAN</span>
+              <h3>Skala Emosi</h3>
+              <p>Kenali suasana hati, energi, dan tingkat stres sebagai bagian dari refleksi harian.</p>
+              <span class="card-link">Kenali perasaanmu &rarr;</span>
+            </div>
+
+            <div class="feature-card card-peach" onclick="navigateTo('kenali-diri')">
+              <span class="card-num">03 / RESPONS</span>
+              <h3>Gaya Coping</h3>
+              <p>Jelajahi cara yang biasa kamu gunakan saat menghadapi tekanan dan tantangan.</p>
+              <span class="card-link">Temukan strategimu &rarr;</span>
+            </div>
+          </div>
+
+          <p class="disclaimer-inline">
+            Fitur refleksi dan skrining di Ruang Dengar bersifat edukatif, bukan alat diagnosis atau pengganti konsultasi tenaga profesional.
+          </p>
+        </div>
+      </div>
+
+      <!-- 03 / LANGKAH KECILMU -->
+      <div class="section-cream border-top">
+        <div class="container split-grid">
+          <div>
+            <span class="section-index">03 / LANGKAH KECILMU</span>
+            <h2 class="section-title">Mulai dari satu hal.</h2>
+            <p class="text-muted mt-12">
+              Tidak ada urutan yang wajib. Kamu bisa memilih langkah yang paling sesuai dengan keadaanmu sekarang.
+            </p>
+          </div>
+
+          <div class="steps-list">
+            <div class="step-item" onclick="navigateTo('kenali-diri')">
+              <div class="step-num">01</div>
+              <div class="step-info">
+                <h4>Kenali yang kamu rasakan</h4>
+                <p>Refleksi singkat untuk memahami keadaan diri.</p>
+              </div>
+              <span class="step-arrow">&rarr;</span>
+            </div>
+
+            <div class="step-item" onclick="navigateTo('ruang-tenang')">
+              <div class="step-num">02</div>
+              <div class="step-info">
+                <h4>Beri dirimu jeda</h4>
+                <p>Coba latihan pernapasan dengan ritme nyaman.</p>
+              </div>
+              <span class="step-arrow">&rarr;</span>
+            </div>
+
+            <div class="step-item" onclick="navigateTo('cerita')">
+              <div class="step-num">03</div>
+              <div class="step-info">
+                <h4>Terhubung dengan dukungan</h4>
+                <p>Bercerita bersama pendamping AI atau cari informasi bantuan.</p>
+              </div>
+              <span class="step-arrow">&rarr;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUOTE & PENGINGAT KECIL -->
+      <div class="section-soft-blue">
+        <div class="container quote-grid">
+          <div class="quote-box">
+            <span class="quote-mark">&ldquo;</span>
+            <blockquote>
+              Kamu boleh beristirahat.<br />
+              Itu juga bagian dari perjalanan.
+            </blockquote>
+          </div>
+
+          <div class="reminder-card">
+            <span class="eyebrow-sm">SEBUAH PENGINGAT KECIL</span>
+            <h3>Tak harus selesai hari ini.</h3>
+            <p>
+              Mengenali diri bukan perlombaan. Kamu boleh berjalan perlahan, mengubah arah, atau berhenti untuk mengambil napas. Hal kecil yang kamu lakukan tetap berarti.
+            </p>
+            <button class="btn btn-dark mt-16" onclick="navigateTo('ular-tangga')">Coba Ular Tangga Emosi &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA BANNER GELAP -->
+      <div class="section-cream">
+        <div class="container">
+          <div class="dark-cta-banner">
+            <span class="eyebrow-light">KAMU TIDAK SENDIRIAN</span>
+            <h2>Ketika terasa terlalu berat, mencari bantuan adalah langkah berani.</h2>
+            <p>Temukan informasi layanan dan dukungan lanjutan yang tersedia.</p>
+            <button class="btn btn-cream mt-20" onclick="navigateTo('bantuan')">Temukan dukungan &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         HALAMAN 2: KENALI DIRI (REFLEKSI 3 MODUL & UNDUH PDF)
+         ========================================================= -->
+    <section id="page-kenali-diri" class="page-section">
+      <div id="reflectIntroView" class="container reflect-intro-grid">
+        <div>
+          <span class="eyebrow">RUANG DENGAR / KENALI DIRI</span>
+          <span class="eyebrow-sm">MOMENT FOR YOURSELF</span>
+          <h1 class="hero-title">
+            Yuk, kenali<br />
+            apa yang sedang<br />
+            kamu rasakan.
+          </h1>
+          <p class="hero-desc">
+            Terkadang kita terlalu sibuk menjalani hari sampai lupa bertanya kepada diri sendiri: sebenarnya, bagaimana keadaanku sekarang?
+          </p>
+          <p class="text-muted">
+            Luangkan beberapa menit untuk mengenali pikiran, perasaan, dan cara kamu menghadapi berbagai situasi.
+          </p>
+          <div class="calm-badges">
+            <span class="tag-badge">Sekitar 3 menit</span>
+            <span class="tag-badge">9 pertanyaan</span>
+            <span class="tag-badge">Refleksi mandiri</span>
+          </div>
+        </div>
+
+        <div class="reflect-modules-card">
+          <div class="module-preview-list">
+            <div class="module-preview-item mod-blue">
+              <span class="mod-code">01. Reaksi Kognitif</span>
+              <p>Mengenali fokus dan pola pikiran.</p>
+            </div>
+            <div class="module-preview-item mod-cream">
+              <span class="mod-code">02. Skala Emosi</span>
+              <p>Mengenali suasana hati dan energi.</p>
+            </div>
+            <div class="module-preview-item mod-peach">
+              <span class="mod-code">03. Gaya Coping</span>
+              <p>Mengenali respons terhadap tekanan.</p>
+            </div>
+          </div>
+
+          <p class="safety-note">
+            Refleksi ini merupakan media edukasi dan pengenalan diri, bukan alat diagnosis atau pengganti pemeriksaan profesional. Jawabanmu tidak dikirim ke server.
+          </p>
+
+          <button class="btn btn-dark btn-full mt-20" onclick="startReflectionQuiz()">Mulai refleksi &rarr;</button>
+        </div>
+      </div>
+
+      <div id="reflectQuizView" class="container quiz-wrapper hidden">
+        <div class="quiz-top-bar">
+          <button class="text-btn" onclick="exitReflectionQuiz()">&larr; Keluar dari refleksi</button>
+          <span class="quiz-counter" id="quizStepCounter">01/09</span>
+        </div>
+
+        <div class="progress-track mb-28">
+          <div class="progress-fill" id="quizProgressBar"></div>
+        </div>
+
+        <div class="quiz-card">
+          <span class="module-pill" id="quizModuleBadge">MODULE 01 &bull; REAKSI KOGNITIF</span>
+          <span class="eyebrow-sm mt-12" id="quizQuestionLabel">PERTANYAAN 01</span>
+          <h2 class="quiz-question-text" id="quizQuestionText">
+            Seberapa sering kamu merasa sulit berkonsentrasi saat melakukan aktivitas?
+          </h2>
+          <p class="quiz-subtext">
+            Pikirkan pengalamanmu selama tujuh hari terakhir. Tidak ada jawaban benar atau salah.
+          </p>
+
+          <div class="quiz-options-list" id="quizOptionsList"></div>
+
+          <div class="quiz-footer-nav">
+            <button class="btn btn-outline" id="quizPrevBtn" onclick="prevQuestion()">&larr; Sebelumnya</button>
+            <button class="btn btn-dark" id="quizNextBtn" onclick="nextQuestion()" disabled>Selanjutnya &rarr;</button>
+          </div>
+        </div>
+
+        <p class="quiz-bottom-note">
+          Jawablah sesuai pengalamanmu sendiri. Kamu boleh berhenti kapan saja.
+        </p>
+      </div>
+
+      <div id="reflectResultView" class="container result-wrapper hidden">
+        <div class="result-header">
+          <span class="eyebrow">RUANG DENGAR / HASIL REFLEKSI</span>
+          <span class="result-date" id="resultDateLabel"></span>
+          <h1 class="hero-title">Terima kasih sudah meluangkan waktu.</h1>
+          <p class="hero-desc">
+            Mengenali diri adalah sebuah langkah kecil yang layak kamu hargai.
+          </p>
+        </div>
+
+        <div class="result-summary-box">
+          <span class="eyebrow-sm">YOUR REFLECTION</span>
+          <h3>Ringkasan refleksimu</h3>
+
+          <div class="cards-3-grid mt-20">
+            <div class="result-score-card card-blue">
+              <div class="score-top">
+                <span class="card-num">01 / PIKIRAN</span>
+                <strong class="score-pill" id="scoreKognitif">0/9 poin refleksi</strong>
+              </div>
+              <h4>Reaksi Kognitif</h4>
+              <p>Jawabanmu berkaitan dengan fokus, konsentrasi, dan beban pikiran.</p>
+              <small class="score-note" id="noteKognitif"></small>
+            </div>
+
+            <div class="result-score-card card-cream">
+              <div class="score-top">
+                <span class="card-num">02 / PERASAAN</span>
+                <strong class="score-pill" id="scoreEmosi">0/9 poin refleksi</strong>
+              </div>
+              <h4>Skala Emosi</h4>
+              <p>Jawabanmu berkaitan dengan suasana hati, kegelisahan, dan energi.</p>
+              <small class="score-note" id="noteEmosi"></small>
+            </div>
+
+            <div class="result-score-card card-peach">
+              <div class="score-top">
+                <span class="card-num">03 / RESPONS</span>
+                <strong class="score-pill" id="scoreCoping">0/9 poin refleksi</strong>
+              </div>
+              <h4>Gaya Coping</h4>
+              <p>Jawabanmu berkaitan dengan cara menghadapi masalah dan mengelola tekanan.</p>
+              <small class="score-note" id="noteCoping"></small>
+            </div>
+          </div>
+
+          <p class="safety-note mt-20">
+            Angka yang ditampilkan merupakan ringkasan pilihan jawaban, bukan skor kesehatan mental, tingkat keparahan, atau diagnosis. Hasil ini hanya tersedia di sesi browser saat ini. Simpan laporan PDF jika kamu ingin menyimpannya.
+          </p>
+
+          <div class="result-actions">
+            <button class="btn btn-dark" onclick="downloadReflectionPDF()">Unduh hasil refleksi (PDF) &darr;</button>
+            <button class="btn btn-outline" onclick="startReflectionQuiz()">Ulangi refleksi</button>
+          </div>
+        </div>
+
+        <div class="next-steps-section">
+          <span class="eyebrow-sm">LANGKAH KECIL BERIKUTNYA</span>
+          <h3>Kamu bisa mulai dari sini.</h3>
+
+          <div class="cards-3-grid mt-16">
+            <div class="feature-card card-cream" onclick="navigateTo('ruang-tenang')">
+              <div>
+                <span class="card-num">JEDA SEJENAK</span>
+                <h4>Ruang Tenang</h4>
+                <p>Coba latihan pernapasan untuk menenangkan ritme tubuhmu.</p>
+              </div>
+              <span class="card-link">Jelajahi &rarr;</span>
+            </div>
+
+            <div class="feature-card card-blue" onclick="navigateTo('ular-tangga')">
+              <div>
+                <span class="card-num">REFLEKSI RINGAN</span>
+                <h4>Ular Tangga Emosi</h4>
+                <p>Temukan afirmasi positif di setiap langkah permainan.</p>
+              </div>
+              <span class="card-link">Main sekarang &rarr;</span>
+            </div>
+
+            <div class="feature-card card-peach" onclick="navigateTo('cerita')">
+              <div>
+                <span class="card-num">BERBAGI CERITA</span>
+                <h4>Ruang Cerita (Chat AI)</h4>
+                <p>Ceritakan isi pikiranmu bersama pendamping AI Ruang Dengar.</p>
+              </div>
+              <span class="card-link">Mulai cerita &rarr;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         HALAMAN 3: RUANG TENANG (LATIHAN PERNAPASAN INTERAKTIF)
+         ========================================================= -->
+    <section id="page-ruang-tenang" class="page-section">
+      <div id="breathSetupView" class="container calm-container">
+        <div class="calm-header">
+          <span class="eyebrow">RUANG DENGAR / RUANG TENANG</span>
+          <span class="eyebrow-sm">A LITTLE MOMENT OF CALM</span>
+          <h1 class="hero-title">Berhenti sejenak.<br />Tarik napas.</h1>
+          <p class="hero-desc">
+            Terkadang kita tidak membutuhkan banyak hal untuk merasa lebih tenang. Cukup beri diri sendiri waktu untuk berhenti dan bernapas. Ikuti ritme pernapasan yang terasa nyaman bagimu.
+          </p>
+          <div class="calm-badges">
+            <span class="tag-badge">1–5 menit</span>
+            <span class="tag-badge">Panduan visual</span>
+            <span class="tag-badge">Sesuai ritmemu</span>
+          </div>
+        </div>
+
+        <div class="calm-setup-card">
+          <span class="eyebrow-sm">YOUR MOMENT STARTS HERE</span>
+          <h3>Bagaimana kamu ingin bernapas hari ini?</h3>
+          <p class="text-muted">Pilih latihan yang terasa nyaman. Kamu bisa mengganti pilihan sebelum memulai sesi.</p>
+
+          <div class="setup-group">
+            <label class="setup-label">Metode pernapasan</label>
+            <div class="option-pills" id="breathMethodOptions">
+              <button type="button" class="pill-choice active" data-method="box">
+                <strong>Box Breathing (4-4-4-4)</strong>
+                <span>4 dtk tarik &bull; 4 dtk tahan &bull; 4 dtk hembus &bull; 4 dtk jeda</span>
+              </button>
+              <button type="button" class="pill-choice" data-method="478">
+                <strong>Relaksasi (4-7-8)</strong>
+                <span>4 dtk tarik &bull; 7 dtk tahan &bull; 8 dtk hembus perlahan</span>
+              </button>
+              <button type="button" class="pill-choice" data-method="calm">
+                <strong>Napas Dalam (4-2-6)</strong>
+                <span>4 dtk tarik &bull; 2 dtk tahan &bull; 6 dtk hembus lembut</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="setup-group">
+            <label class="setup-label">Durasi latihan</label>
+            <div class="duration-pills" id="breathDurationOptions">
+              <button type="button" class="dur-choice" data-minutes="1">1 menit</button>
+              <button type="button" class="dur-choice active" data-minutes="3">3 menit</button>
+              <button type="button" class="dur-choice" data-minutes="5">5 menit</button>
+            </div>
+          </div>
+
+          <p class="safety-note">
+            Jika terasa pusing atau tidak nyaman, hentikan latihan dan kembalilah bernapas secara alami. Kamu tidak perlu menahan napas jika itu terasa tidak nyaman.
+          </p>
+
+          <button class="btn btn-dark btn-full mt-20" onclick="startBreathingSession()">Mulai latihan &rarr;</button>
+        </div>
+      </div>
+
+      <div id="breathActiveView" class="breath-session-screen hidden">
+        <div class="container breath-session-inner">
+          <div class="session-top-bar">
+            <button class="text-btn" onclick="stopBreathingSession()">&larr; Akhiri sesi</button>
+            <span class="session-badge" id="activeMethodLabel">BOX BREATHING</span>
+          </div>
+
+          <div class="progress-wrapper">
+            <div class="progress-track">
+              <div class="progress-fill" id="breathProgressBar"></div>
+            </div>
+            <div class="progress-meta">
+              <span>Waktu tersisa</span>
+              <strong id="breathTimeLeft">03:00</strong>
+            </div>
+          </div>
+
+          <div class="breath-visualizer">
+            <div class="breath-ring-outer"></div>
+            <div class="breath-circle" id="breathCircle">
+              <span class="breath-phase-text" id="breathPhaseText">Tarik napas</span>
+              <strong class="breath-counter" id="breathPhaseCounter">4</strong>
+              <small>Ikuti ritmemu</small>
+            </div>
+          </div>
+
+          <div class="session-instruction">
+            <span class="eyebrow-sm">STAY IN THE MOMENT</span>
+            <h3 id="breathInstructionTitle">Tarik napas perlahan.</h3>
+            <p id="breathInstructionSub">Biarkan udara masuk dengan lembut.</p>
+
+            <div class="session-controls">
+              <button class="btn btn-outline" id="pauseBreathBtn" onclick="togglePauseBreathing()">Jeda</button>
+              <button class="btn btn-outline" onclick="stopBreathingSession()">Selesai</button>
+            </div>
+
+            <div class="ambient-control">
+              <button class="btn btn-soft-pill" id="ambientToggleBtn" onclick="toggleAmbientSound()">
+                &#9835; Nyalakan suara ambient
+              </button>
+              <small>Suara lembut &bull; Opsional</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         HALAMAN 4: ULAR TANGGA EMOSI (PAPAN 36 LANGKAH + GAMBAR ULAR & TANGGA)
+         ========================================================= -->
+    <section id="page-ular-tangga" class="page-section">
+      <div id="snakeIntroView" class="container reflect-intro-grid">
+        <div>
+          <span class="eyebrow">RUANG BERMAIN RUANG DENGAR</span>
+          <h1 class="hero-title">
+            Setiap langkah<br />
+            punya ceritanya.
+          </h1>
+          <p class="hero-desc">
+            Hidup tidak selalu berjalan lurus. Ada saatnya kita naik, ada saatnya kita turun. Melalui permainan ini, mari belajar menghargai setiap proses dan perjalanan diri.
+          </p>
+          <p class="text-muted">
+            Perjalananmu berharga. Tidak harus selalu cepat untuk sampai.
+          </p>
+          <div class="mt-20">
+            <button class="btn btn-dark" onclick="startSnakeGame()">Mulai Bermain &rarr;</button>
+          </div>
+        </div>
+
+        <div class="snake-guide-card">
+          <div class="calm-badges" style="margin-top: 0; margin-bottom: 18px;">
+            <span class="tag-badge">5 menit</span>
+            <span class="tag-badge">Refleksi ringan</span>
+            <span class="tag-badge">Santai</span>
+          </div>
+
+          <div class="guide-steps">
+            <div class="guide-row">
+              <strong>Lempar Dadu</strong>
+              <span>Mulai perjalananmu</span>
+            </div>
+            <div class="guide-row">
+              <strong>Gerak</strong>
+              <span>Satu langkah dalam satu waktu</span>
+            </div>
+            <div class="guide-row">
+              <strong>Temukan Tangga</strong>
+              <span>Langkah positif &amp; dukungan</span>
+            </div>
+            <div class="guide-row">
+              <strong>Hadapi Ular</strong>
+              <span>Turun bukan berarti gagal. Teruslah menikmati prosesnya, tidak perlu terburu-buru</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="snakeBoardView" class="container snake-game-container hidden">
+        <div class="snake-header-bar">
+          <span class="eyebrow" style="margin-bottom: 0;">PAPAN PERJALANAN &bull; START &rarr; FINISH</span>
+          <button class="text-btn" onclick="exitSnakeGame()">&larr; Kembali ke panduan</button>
+        </div>
+
+        <div class="snake-main-grid">
+          <div class="board-panel">
+            <!-- Wrapper Relatif untuk Grid Papan + Lapisan Gambar SVG Ular & Tangga -->
+            <div class="board-stage">
+              <div class="snake-board" id="snakeBoardGrid"></div>
+              <svg id="snakeBoardOverlay" class="board-svg-overlay" viewBox="0 0 600 600" preserveAspectRatio="none"></svg>
+            </div>
+            <div class="board-legend">
+              <span><i class="dot-ladder"></i> Tangga (Naik)</span>
+              <span><i class="dot-snake"></i> Ular (Turun)</span>
+              <span><i class="dot-player"></i> Pion Kamu</span>
+            </div>
+          </div>
+
+          <div class="snake-side-panel">
+            <div class="snake-status-card">
+              <div class="status-top">
+                <span class="eyebrow-sm">GILIRANMU</span>
+                <span class="step-badge" id="snakePositionText">1 dari 36 langkah</span>
+              </div>
+
+              <div class="dice-box">
+                <div class="dice-face" id="diceFaceDisplay">1</div>
+                <div>
+                  <strong id="diceStatusLabel">Siap memulai perjalananmu?</strong>
+                  <p class="text-muted" id="diceMoveDetail">Lempar dadu untuk melangkah di papan 36 kotak.</p>
+                </div>
+              </div>
+
+              <div class="snake-action-row">
+                <button class="btn btn-dark btn-full" id="rollDiceBtn" onclick="rollSnakeDice()">Lempar Dadu</button>
+                <button class="btn btn-outline" id="snakeSoundBtn" onclick="toggleSnakeSound()">Sound On</button>
+                <button class="btn btn-outline" onclick="resetSnakeGame()">Mulai Ulang</button>
+              </div>
+            </div>
+
+            <div class="snake-message-card">
+              <span class="eyebrow-sm">PESAN UNTUKMU</span>
+              <h4 id="snakeAffirmationTitle">Kamu sudah memulai.</h4>
+              <p id="snakeAffirmationBody">Mengambil langkah pertama juga merupakan sebuah keberanian.</p>
+            </div>
+
+            <div class="snake-stats-row">
+              <div class="mini-stat">
+                <small>Total lemparan</small>
+                <strong id="statRolls">0</strong>
+              </div>
+              <div class="mini-stat">
+                <small>Tangga</small>
+                <strong id="statLadders">0</strong>
+              </div>
+              <div class="mini-stat">
+                <small>Ular</small>
+                <strong id="statSnakes">0</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         HALAMAN 5: RUANG CERITA (CHATBOT AI PENDAMPING)
+         ========================================================= -->
+    <section id="page-cerita" class="page-section">
+      <div class="container chat-page-grid">
+        <div class="chat-info-col">
+          <span class="eyebrow">RUANG DENGAR / SHARING</span>
+          <h1 class="hero-title">Ceritamu layak mendapat ruang.</h1>
+          <p class="hero-desc">
+            Ceritakan apa saja yang sedang kamu rasakan kepada <strong>Teman Dengar AI</strong>. Ia hadir untuk mendengarkan tanpa menghakimi, membantumu mengurai pikiran, dan menemanimu mengambil jeda.
+          </p>
+          <p class="safety-note">
+            <strong>Batasan jelas:</strong> Teman Dengar AI adalah pendamping refleksi otomatis berbasis aturan empatik, <em>bukan</em> psikolog, psikiater, atau layanan konseling klinis. Jika kondisi terasa darurat atau membahayakan diri, segera hubungi layanan profesional.
+          </p>
+          <div class="hero-cta mt-20">
+            <button class="btn btn-outline" onclick="navigateTo('bantuan')">Bantuan Profesional</button>
+            <button class="btn btn-outline" onclick="navigateTo('ruang-tenang')">Ruang Tenang</button>
+          </div>
+        </div>
+
+        <!-- Kotak Chatbot AI -->
+        <div class="chatbot-card">
+          <div class="chatbot-header">
+            <div class="bot-identity">
+              <div class="bot-avatar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <div>
+                <strong>Teman Dengar AI</strong>
+                <span class="bot-status"><i class="online-dot"></i> Siap mendengarkanmu</span>
+              </div>
+            </div>
+            <button class="text-btn" onclick="resetChatSession()" title="Mulai obrolan baru">Reset</button>
+          </div>
+
+          <div class="chat-messages" id="chatMessagesContainer">
+            <!-- Pesan awal diisi otomatis oleh JS -->
+          </div>
+
+          <div class="chat-quick-prompts" id="chatQuickPrompts">
+            <button type="button" class="quick-chip" onclick="sendQuickPrompt('Hari ini kepalaku terasa penuh dan capek banget.')">Lagi capek &amp; penuh</button>
+            <button type="button" class="quick-chip" onclick="sendQuickPrompt('Aku lagi cemas dan overthinking soal banyak hal.')">Lagi overthinking</button>
+            <button type="button" class="quick-chip" onclick="sendQuickPrompt('Aku cuma butuh didengarkan sebentar tanpa dinasihati.')">Cuma ingin didengar</button>
+          </div>
+
+          <form class="chat-input-bar" onsubmit="handleChatSubmit(event)">
+            <input
+              type="text"
+              id="chatUserInput"
+              class="chat-input"
+              placeholder="Tulis ceritamu di sini..."
+              autocomplete="off"
+              required
+            />
+            <button type="submit" class="btn btn-dark btn-sm">Kirim &rarr;</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         HALAMAN 6: TEMUKAN DUKUNGAN (BANTUAN PROFESIONAL)
+         ========================================================= -->
+    <section id="page-bantuan" class="page-section">
+      <div class="container section-cream">
+        <span class="eyebrow">RUANG DENGAR / SUPPORT</span>
+        <h1 class="hero-title">Temukan Dukungan</h1>
+        <p class="hero-desc">
+          Meminta bantuan juga merupakan bentuk keberanian. Temukan informasi layanan profesional, dukungan psikososial, pemulihan trauma, dan dukungan sebaya yang telah diverifikasi.
+        </p>
+
+        <div class="cards-3-grid mt-20">
+          <div class="feature-card card-blue">
+            <div>
+              <span class="card-num">LAYANAN PSIKOSOSIAL &amp; KONSELING</span>
+              <h3>HIMPSI &amp; Layanan Konseling Terdaftar</h3>
+              <p>Direktori psikolog klinis dan layanan konseling berlisensi untuk pendampingan terstruktur sesuai kebutuhanmu.</p>
+            </div>
+            <span class="card-link" onclick="scrollToSection('crisis-info')">Lihat panduan kontak &rarr;</span>
+          </div>
+
+          <div class="feature-card card-cream">
+            <div>
+              <span class="card-num">PEMULIHAN TRAUMA &amp; KRISIS</span>
+              <h3>Layanan Darurat &amp; Krisis (119 / Layanan Resmi)</h3>
+              <p>Jika kamu atau orang terdekat berada dalam kondisi krisis atau merasa tidak aman, segera hubungi layanan darurat atau tenaga profesional terdekat.</p>
+            </div>
+            <span class="card-link" onclick="navigateTo('ruang-tenang')">Ambil jeda napas dulu &rarr;</span>
+          </div>
+
+          <div class="feature-card card-peach">
+            <div>
+              <span class="card-num">DUKUNGAN SEBAYA</span>
+              <h3>Komunitas &amp; Ruang Pendengar</h3>
+              <p>Dukungan sebaya membantu mengurangi rasa sendiri, namun tetap memiliki batasan dibanding pendampingan klinis profesional.</p>
+            </div>
+            <span class="card-link" onclick="navigateTo('cerita')">Buka Ruang Cerita &rarr;</span>
+          </div>
+        </div>
+
+        <div class="reminder-card mt-20" id="crisis-info">
+          <span class="eyebrow-sm">CATATAN KESELAMATAN &amp; NON-DIAGNOSIS</span>
+          <h3>Ruang Dengar bukan pengganti tenaga profesional.</h3>
+          <p>
+            Seluruh fitur di Ruang Dengar—mulai dari refleksi mandiri, latihan pernapasan, hingga permainan Ular Tangga Emosi—dirancang sebagai sarana edukasi dan jeda reflektif harian. Jika keluhan berlangsung lama atau mengganggu keseharian secara berat, berkonsultasilah dengan psikolog, psikiater, atau layanan kesehatan resmi setempat.
+          </p>
+          <div class="mt-16">
+            <button class="btn btn-outline" onclick="navigateTo('beranda')">Kembali ke beranda</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#beranda" class="brand" onclick="navigateTo('beranda')">
+          <span class="brand-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </span>
+          <span class="brand-text">ruang<strong>dengar.</strong></span>
+        </a>
+        <p class="footer-tagline">
+          Ruang aman untuk mengenali diri, menemukan jeda, dan didengarkan.
+        </p>
+        <p class="footer-copy">&copy; 2026 Ruang Dengar. Dibuat dengan kepedulian.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Jelajahi</h4>
+        <a href="#kenali-diri" onclick="navigateTo('kenali-diri')">Kenali Diri</a>
+        <a href="#ruang-tenang" onclick="navigateTo('ruang-tenang')">Ruang Tenang</a>
+        <a href="#ular-tangga" onclick="navigateTo('ular-tangga')">Ular Tangga Emosi</a>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Dukungan</h4>
+        <a href="#cerita" onclick="navigateTo('cerita')">Ruang Cerita (Chat AI)</a>
+        <a href="#bantuan" onclick="navigateTo('bantuan')">Bantuan Profesional</a>
+        <a href="#beranda" onclick="scrollToSection('tentang-section')">Tentang Kami</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>Ini bukan layanan diagnosis atau pengganti bantuan profesional. Pelan-pelan saja. Kamu tetap berarti.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
